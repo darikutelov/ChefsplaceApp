@@ -4,7 +4,8 @@ module.exports = function (api) {
     presets: ["babel-preset-expo"],
     plugins: [
       "@realm/babel-plugin",
-      ["@babel/plugin-proposal-decorators", { legacy: true }]
+      ["@babel/plugin-proposal-decorators", { legacy: true }],
+      "nativewind/babel"
     ]
   }
 }

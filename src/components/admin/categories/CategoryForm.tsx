@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, Button, TextInput, StyleSheet } from "react-native"
+import { View, Text, Button, TextInput } from "react-native"
 import { useRealm } from "@realm/react"
 import { Category } from "@/src/models/Category"
 
@@ -50,8 +50,8 @@ export default function AddCategory({ category, handleDismiss }: Props) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
+    <View className='gap-4'>
+      <Text className='text-xl font-bold'>
         {category ? "Edit Category" : "Add New Category"}
       </Text>
 
@@ -81,19 +81,3 @@ export default function AddCategory({ category, handleDismiss }: Props) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: 16
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold"
-  },
-  input: {
-    height: 40,
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 5
-  }
-})

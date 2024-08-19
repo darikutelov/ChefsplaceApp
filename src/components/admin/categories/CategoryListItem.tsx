@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from "react-native"
+import { View, Text, Image } from "react-native"
 import { Category } from "@/src/models/Category"
 import { K } from "@/src/constants"
 import { Ionicons } from "@expo/vector-icons"
@@ -24,11 +24,12 @@ export default function CategoryListItem({ category }: Props) {
   }
 
   return (
-    <View style={styles.container}>
+    <View className='flex-row items-center gap-1'>
       {category.imageUrl && (
-        <View style={styles.imageWrapper}>
+        <View className='w-14 h-14 bg-white rounded-lg overflow-hidden justify-center items-center'>
           <Image
-            style={styles.image}
+            className='w-12 h-12'
+            resizeMode='contain'
             source={{ uri: K.categoryBaseUrl + category.imageUrl }}
           />
         </View>
@@ -41,25 +42,3 @@ export default function CategoryListItem({ category }: Props) {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5
-  },
-  imageWrapper: {
-    width: 55,
-    height: 55,
-    overflow: "hidden",
-    backgroundColor: "white",
-    borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  image: {
-    width: 50,
-    height: 50,
-    resizeMode: "contain"
-  }
-})

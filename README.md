@@ -8,3 +8,4 @@ E-commerce mobile app build with React Native
 - Expo router
 - Ream
 - Atlas Device SDK
+- NativeWind - TailwindCSS

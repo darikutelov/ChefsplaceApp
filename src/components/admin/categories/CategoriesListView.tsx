@@ -7,7 +7,7 @@ export default function CategoriesListView() {
   const categories = useQuery(Category, (q) => q.sorted("position"))
 
   return (
-    <View style={{ flex: 2 }}>
+    <View>
       <FlatList
         data={categories}
         contentContainerStyle={{ gap: 5 }}
