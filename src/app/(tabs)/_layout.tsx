@@ -33,6 +33,19 @@ export default function TabLayout() {
           title: "Explore",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
+              name={focused ? "search" : "search-outline"}
+              color={color}
+            />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name='admin'
+        options={{
+          title: "Admin",
+          headerShown: false,
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon
               name={focused ? "code-slash" : "code-slash-outline"}
               color={color}
             />

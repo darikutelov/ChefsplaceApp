@@ -1,4 +1,4 @@
-import { Object, BSON, List } from "realm"
+import { Object, BSON, Realm } from "realm"
 import { Product } from "@/src/models/Product"
 
 export class Category extends Object<Category> {
@@ -8,7 +8,7 @@ export class Category extends Object<Category> {
   position: number = 0
 
   // Relations
-  products: List<Product> = new List<Product>()
+  products!: Realm.List<Product> // Let Realm handle the initialization
 
   static primaryKey = "_id"
 }
