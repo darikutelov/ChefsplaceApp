@@ -9,7 +9,7 @@ type Props = {
 
 export default function NavListItem({ title, url }: Props) {
   return (
-    <Pressable className='py-5 w-full border-b border-gray-300'>
+    <Pressable className='py-3 w-full border-b border-gray-300'>
       <Link href={`${url}` as Href}>
         <View className='block flex-row w-full justify-between'>
           <Text className='text-lg'>{title}</Text>

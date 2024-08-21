@@ -5,11 +5,9 @@ import AddCategory from "@/src/components/admin/categories/CategoryForm"
 
 export default function categories() {
   return (
-    <>
-      <View style={{ flex: 1, padding: 20, gap: 20 }}>
-        <AddCategory />
-        <CategoriesListView />
-      </View>
-    </>
+    <View className='flex-1 p-5'>
+      <CategoriesListView />
+      <AddCategory />
+    </View>
   )
 }

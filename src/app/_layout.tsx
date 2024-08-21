@@ -1,5 +1,3 @@
-import "@/src/global.css"
-
 import {
   DarkTheme,
   DefaultTheme,
@@ -38,7 +36,6 @@ export default function RootLayout() {
       <RealmAppProvider>
         <Stack>
           <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name='+not-found' />
         </Stack>
       </RealmAppProvider>
     </ThemeProvider>
