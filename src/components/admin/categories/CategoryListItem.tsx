@@ -12,15 +12,10 @@ type Props = {
 export default function CategoryListItem({ category }: Props) {
   const realm = useRealm()
 
-  const [isEditing, setIsEditing] = useState(false)
-
   const deleteCategory = () => {
     realm.write(() => {
       realm.delete(category)
     })
-  }
-  const editCategory = () => {
-    setIsEditing(true)
   }
 
   return (
@@ -34,11 +29,13 @@ export default function CategoryListItem({ category }: Props) {
           />
         </View>
       )}
-      <Text style={{ flex: 1 }}>{category.name}</Text>
-      <Link href={`admin/categories/${category._id}` as Href} asChild>
-        <Ionicons name='pencil' size={20} />
-      </Link>
-      <Ionicons name='close' size={20} onPress={() => deleteCategory()} />
+      <Text className='flex-1 '>{category.name}</Text>
+      <View className='flex-row items-center gap-2'>
+        <Link href={`admin/categories/${category._id}` as Href} asChild>
+          <Ionicons name='pencil' size={16} />
+        </Link>
+        <Ionicons name='close' size={20} onPress={() => deleteCategory()} />
+      </View>
     </View>
   )
 }

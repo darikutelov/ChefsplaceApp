@@ -7,7 +7,6 @@ export default function categories() {
   return (
     <View className='flex-1 p-5'>
       <CategoriesListView />
-      <AddCategory />
     </View>
   )
 }

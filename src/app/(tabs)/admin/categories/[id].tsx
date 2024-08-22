@@ -13,14 +13,10 @@ export default function UpdateCategoryModalScreen() {
   const category =
     useObject(Category, new BSON.ObjectId(id as string)) ?? undefined
 
-  const handleDismiss = (count: number) => {
-    router.dismiss(count)
-  }
-
   return (
     <>
-      <View style={{ padding: 20 }}>
-        <CategoryForm category={category} handleDismiss={handleDismiss} />
+      <View className='p-5'>
+        <CategoryForm category={category} handleDismiss={() => router.back()} />
       </View>
     </>
   )

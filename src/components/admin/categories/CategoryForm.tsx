@@ -30,7 +30,14 @@ export default function AddCategory({ category, handleDismiss }: Props) {
 
   // Hooks
   const realm = useRealm()
-  const { ...methods } = useForm({ mode: "onChange" })
+  const { ...methods } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      name: category?.name || "",
+      imageUrl: category?.imageUrl || "",
+      position: category ? category.position.toString() : ""
+    }
+  })
 
   // Functions
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -65,10 +72,6 @@ export default function AddCategory({ category, handleDismiss }: Props) {
 
   return (
     <View className='gap-4'>
-      <Text className='text-xl font-bold mb-2'>
-        {category ? "Редактиране на категория" : "Добавяне на категория"}
-      </Text>
-
       <View>
         <FormProvider {...methods}>
           <TextInput

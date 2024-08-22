@@ -1,5 +1,6 @@
 import NavListItem from "@/src/components/ui/navigation/NavListItem"
-import { Text, SafeAreaView, View } from "react-native"
+import { Text, View } from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
 
 export default function Admin() {
   return (
