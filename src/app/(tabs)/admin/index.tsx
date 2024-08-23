@@ -7,11 +7,9 @@ export default function Admin() {
     <>
       <SafeAreaView className='flex-1'>
         <View className='p-5 gap-5'>
-          <Text className='text-3xl font-bold text-center mb-6'>Admin</Text>
-
           <View className='divide-y'>
-            <NavListItem title={"Categories"} url={"admin/categories"} />
-            <NavListItem title={"Products"} url={"admin/products"} />
+            <NavListItem title={"Категории"} url={"admin/categories"} />
+            <NavListItem title={"Продукти"} url={"admin/products"} />
           </View>
         </View>
       </SafeAreaView>

@@ -2,8 +2,7 @@ import {
   View,
   TextInput as RNTextInput,
   TextInputProps as RNTextInputProps,
-  Text,
-  StyleSheet
+  Text
 } from "react-native"
 
 import {
@@ -13,6 +12,7 @@ import {
 } from "react-hook-form"
 
 import Constants from "expo-constants"
+import { ThemedText } from "../../ThemedText"
 
 interface TextInputProps extends RNTextInputProps, UseControllerProps {
   label: string
@@ -33,7 +33,7 @@ const ControlledInput = (props: TextInputProps) => {
 
   return (
     <View className='mb-2'>
-      {label && <Text className='m-1 ml-0 text-gray-900'>{label}</Text>}
+      {label && <ThemedText className='m-1 ml-0'>{label}</ThemedText>}
       <View>
         <RNTextInput
           className='p-3 bg-white border border-gray-500 rounded'

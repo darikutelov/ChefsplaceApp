@@ -108,7 +108,7 @@ export default function AddCategory({ category, handleDismiss }: Props) {
           />
         </FormProvider>
       </View>
-      <View className='p-1 bg-gray-900 rounded'>
+      <View className='p-1 bg-primary rounded'>
         <Button
           title={category ? "Редактирай" : "Добави"}
           color='white'

@@ -1,6 +1,8 @@
 import { Entypo } from "@expo/vector-icons"
 import { Href, Link } from "expo-router"
-import { View, Text, Pressable } from "react-native"
+import { View, Pressable } from "react-native"
+import { ThemedText } from "../../ThemedText"
+import { useThemeColor } from "@/src/hooks/useThemeColor"
 
 type Props = {
   title: string
@@ -8,12 +10,19 @@ type Props = {
 }
 
 export default function NavListItem({ title, url }: Props) {
+  const iconColor = useThemeColor({}, "icon")
+
   return (
-    <Pressable className='py-3 w-full border-b border-gray-300'>
-      <Link href={`${url}` as Href}>
-        <View className='block flex-row w-full justify-between'>
-          <Text className='text-lg'>{title}</Text>
-          <Entypo name='chevron-small-right' size={24} color='black' />
+    <Pressable className='py-3 w-full border-b border-gray-400'>
+      <Link href={`${url}` as Href} className='flex'>
+        <View className='w-full flex-row items-center justify-between'>
+          <ThemedText className='text-lg flex-3'>{title}</ThemedText>
+          <Entypo
+            name='chevron-small-right'
+            size={24}
+            color={iconColor}
+            className='flex-1'
+          />
         </View>
       </Link>
     </Pressable>

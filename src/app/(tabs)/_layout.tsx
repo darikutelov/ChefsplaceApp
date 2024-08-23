@@ -12,13 +12,17 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false
+        headerShown: false,
+        tabBarStyle: {
+          paddingTop: 4
+        }
       }}
     >
       <Tabs.Screen
         name='index'
         options={{
           title: "Home",
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "home" : "home-outline"}
@@ -31,6 +35,7 @@ export default function TabLayout() {
         name='products'
         options={{
           title: "Products",
+          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "search" : "search-outline"}
@@ -42,8 +47,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name='admin'
         options={{
-          title: "Admin",
-          headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "code-slash" : "code-slash-outline"}
