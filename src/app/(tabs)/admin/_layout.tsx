@@ -1,6 +1,7 @@
+import { Platform } from "react-native"
 import { Href, Stack, useRouter } from "expo-router"
 import { Ionicons } from "@expo/vector-icons"
-import { Platform } from "react-native"
+
 import { Colors } from "@/src/constants/Colors"
 import { useThemeColor } from "@/src/hooks/useThemeColor"
 
@@ -20,12 +21,7 @@ export default function Layout() {
 
   return (
     <Stack>
-      <Stack.Screen
-        name='index'
-        options={{
-          headerShown: false
-        }}
-      />
+      <Stack.Screen name='index' />
       <Stack.Screen
         name='categories/index'
         options={{
@@ -68,6 +64,13 @@ export default function Layout() {
           headerLeft: () => {
             return <>{Platform.OS === "android" && modalClose()}</>
           }
+        }}
+      />
+
+      <Stack.Screen
+        name='products'
+        options={{
+          headerShown: false
         }}
       />
     </Stack>

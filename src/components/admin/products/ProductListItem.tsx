@@ -1,40 +1,37 @@
 import { View, Image } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
-import { useRealm } from "@realm/react"
 import { Href, Link } from "expo-router"
+import { Ionicons } from "@expo/vector-icons"
 
-import { useThemeColor } from "@/src/hooks/useThemeColor"
+import { Product } from "@/src/models/Product"
 import { K } from "@/src/constants"
-import { Category } from "@models/Category"
-import { ThemedText } from "@components/ThemedText"
+import { ThemedText } from "../../ThemedText"
+import { useThemeColor } from "@/src/hooks/useThemeColor"
+import { useRealm } from "@realm/react"
 
-type Props = {
-  category: Category
-}
-export default function CategoryListItem({ category }: Props) {
+export default function ProductListItem({ product }: { product: Product }) {
   const realm = useRealm()
   const iconColor = useThemeColor({}, "icon")
 
   const deleteCategory = () => {
     realm.write(() => {
-      realm.delete(category)
+      realm.delete(product)
     })
   }
 
   return (
     <View className='flex-row items-center gap-1'>
-      {category.imageUrl && (
+      {product.images[0] && (
         <View className='w-14 h-14 bg-white rounded-lg overflow-hidden justify-center items-center'>
           <Image
             className='w-12 h-12'
             resizeMode='contain'
-            source={{ uri: K.categoryBaseUrl + category.imageUrl }}
+            source={{ uri: K.productsBaseUrl + product.images[0] }}
           />
         </View>
       )}
-      <ThemedText className='flex-1 pl-2'>{category.name}</ThemedText>
+      <ThemedText className='flex-1 pl-2'>{product.name}</ThemedText>
       <View className='flex-row items-center gap-2'>
-        <Link href={`admin/categories/${category._id}` as Href} asChild>
+        <Link href={`admin/categories/${product._id}` as Href} asChild>
           <Ionicons name='pencil' color={iconColor} size={16} />
         </Link>
         <Ionicons

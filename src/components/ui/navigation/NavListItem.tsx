@@ -1,7 +1,7 @@
 import { Entypo } from "@expo/vector-icons"
 import { Href, Link } from "expo-router"
 import { View, Pressable } from "react-native"
-import { ThemedText } from "../../ThemedText"
+import { ThemedText } from "@components/ThemedText"
 import { useThemeColor } from "@/src/hooks/useThemeColor"
 
 type Props = {

@@ -1,9 +1,8 @@
 import { View } from "react-native"
 
-import CategoriesListView from "@/src/components/admin/categories/CategoriesListView"
-import AddCategory from "@/src/components/admin/categories/CategoryForm"
+import CategoriesListView from "@components/admin/categories/CategoriesListView"
 
-export default function categories() {
+export default function CategoriesList() {
   return (
     <View className='flex-1 p-5'>
       <CategoriesListView />

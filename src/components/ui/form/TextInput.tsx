@@ -11,8 +11,7 @@ import {
   UseControllerProps
 } from "react-hook-form"
 
-import Constants from "expo-constants"
-import { ThemedText } from "../../ThemedText"
+import { ThemedText } from "@components/ThemedText"
 
 interface TextInputProps extends RNTextInputProps, UseControllerProps {
   label: string

@@ -1,7 +1,8 @@
-import { View, FlatList } from "react-native"
+import { FlatList } from "react-native"
 import { useQuery } from "@realm/react"
-import { Category } from "@/src/models/Category"
-import CategoryListItem from "./CategoryListItem"
+
+import { Category } from "@models/Category"
+import CategoryListItem from "@components/admin/categories/CategoryListItem"
 
 export default function CategoriesListView() {
   const categories = useQuery(Category, (q) => q.sorted("position"))

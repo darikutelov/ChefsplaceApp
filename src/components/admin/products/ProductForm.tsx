@@ -10,11 +10,11 @@ import {
 } from "react-hook-form"
 import Constants from "expo-constants"
 
-import { Category } from "@models/Category"
 import { TextInput } from "@components/ui/form/TextInput"
+import { Product } from "@/src/models/Product"
 
 type Props = {
-  category?: Category
+  product?: Product
   handleDismiss?: (count: number) => void
 }
 
@@ -24,19 +24,16 @@ type FormValues = {
   position: string
 }
 
-export default function AddCategory({ category, handleDismiss }: Props) {
+export default function ProductForm({ product, handleDismiss }: Props) {
   // State
   const [formError, setError] = useState<Boolean>(false)
 
   // Hooks
   const realm = useRealm()
-
   const { ...methods } = useForm({
     mode: "onChange",
     defaultValues: {
-      name: category?.name || "",
-      imageUrl: category?.imageUrl || "",
-      position: category ? category.position.toString() : ""
+      name: product?.name || ""
     }
   })
 
@@ -45,12 +42,10 @@ export default function AddCategory({ category, handleDismiss }: Props) {
     console.log({ data })
 
     realm.write(() => {
-      if (category) {
-        category.name = data.name
-        category.imageUrl = data.imageUrl
-        category.position = parseInt(data.position)
+      if (product) {
+        // update product
       } else {
-        realm.create("Category", {
+        realm.create("Product", {
           name: data.name,
           imageUrl: data.imageUrl,
           position: parseInt(data.position),
@@ -77,7 +72,7 @@ export default function AddCategory({ category, handleDismiss }: Props) {
         <FormProvider {...methods}>
           <TextInput
             name='name'
-            label='Име на категория'
+            label='Име на продукт'
             placeholder=''
             keyboardType='default'
             rules={{
@@ -86,18 +81,17 @@ export default function AddCategory({ category, handleDismiss }: Props) {
             setFormError={setError}
           />
           <TextInput
-            name='imageUrl'
-            label='Линк към снимка на категория'
+            name='barCode'
+            label='Баркод'
             placeholder=''
             keyboardType='default'
             setFormError={setError}
           />
           <TextInput
-            name='position'
-            label='Позиция на категорията в менюто'
+            name='shortDescription'
+            label='Кратко описание'
             placeholder=''
             keyboardType='default'
-            maxLength={2}
             rules={{
               required: "Позицията е задължителна",
               pattern: {
@@ -111,7 +105,7 @@ export default function AddCategory({ category, handleDismiss }: Props) {
       </View>
       <View className='p-1 bg-primary rounded'>
         <Button
-          title={category ? "Редактирай" : "Добави"}
+          title={product ? "Редактирай" : "Добави"}
           color='white'
           onPress={methods.handleSubmit(onSubmit, onError)}
         />

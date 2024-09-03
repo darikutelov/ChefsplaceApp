@@ -1,18 +1,26 @@
-import NavListItem from "@/src/components/ui/navigation/NavListItem"
-import { Text, View } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
+import { View } from "react-native"
+
+import NavListItem from "@components/ui/navigation/NavListItem"
+import { Stack } from "expo-router"
+import { Colors } from "@/src/constants/Colors"
 
 export default function Admin() {
   return (
     <>
-      <SafeAreaView className='flex-1'>
-        <View className='p-5 gap-5'>
-          <View className='divide-y'>
-            <NavListItem title={"Категории"} url={"admin/categories"} />
-            <NavListItem title={"Продукти"} url={"admin/products"} />
-          </View>
+      <Stack.Screen
+        options={{
+          title: "Админ",
+          headerTitleStyle: {
+            color: Colors.ui.primary
+          }
+        }}
+      />
+      <View className='flex-1 p-5 gap-5'>
+        <View className='divide-y'>
+          <NavListItem title={"Категории"} url={"admin/categories"} />
+          <NavListItem title={"Продукти"} url={"admin/products"} />
         </View>
-      </SafeAreaView>
+      </View>
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router"
 import { View } from "react-native"
 
-import CategoryForm from "@/src/components/admin/categories/CategoryForm"
+import CategoryForm from "@components/admin/categories/CategoryForm"
 
 export default function AddCategoryModalScreen() {
   const router = useRouter()

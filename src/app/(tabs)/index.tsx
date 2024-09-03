@@ -1,7 +1,7 @@
 import { View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
-import { ThemedText } from "@/src/components/ThemedText"
+import { ThemedText } from "@components/ThemedText"
 
 export default function HomeScreen() {
   return (

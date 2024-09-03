@@ -4,7 +4,7 @@ import { useLocalSearchParams, useRouter } from "expo-router"
 import { View } from "react-native"
 import { BSON } from "realm"
 
-import CategoryForm from "@/src/components/admin/categories/CategoryForm"
+import CategoryForm from "@components/admin/categories/CategoryForm"
 
 export default function UpdateCategoryModalScreen() {
   const { id } = useLocalSearchParams()
